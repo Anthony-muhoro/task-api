@@ -3,7 +3,7 @@
 A simple Express.js + Prisma RESTful API for managing tasks with soft-delete and full CRUD support using ESM syntax.
 
 
-Base url : https://task-api-1-232o.onrender.com/
+Base url : https://task-api-2-ne9m.onrender.com/
 ## API Endpoints
 
 ### POST /task
