@@ -19,19 +19,6 @@ Create one or multiple tasks.
 }
 ```
 
-#### Request Body (Multiple Tasks)
-
-```json
-[
-  {
-    "title": "Clean the house"
-  },
-  {
-    "title": "Finish project",
-    "description": "Finalize backend logic"
-  }
-]
-```
 response if success
 ```json
 {
