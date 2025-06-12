@@ -13,27 +13,19 @@ const port = process.env.PORT || 8081
 
 app.post("/task", async (req, res) => {
   try {
-    const tasks = req.body
-    const taskData = Array.isArray(tasks) ? tasks : [tasks]
-
-    await client.tasks.createMany({
-      data: taskData.map(task => ({
-        title: task.title,
-        description: task.description || "",
-        isCompleted: task.isCompleted || false,
-        isDeleted: task.isDeleted || false
-      }))
+    const {title,description} = req.body;
+    const task = await client.tasks.create({
+      data:{
+        title,
+        description
+      }
     })
-
-    const createdTasks = await client.tasks.findMany({
-      orderBy: { id: "desc" },
-      take: taskData.length
-    })
+   
 
     return res.status(201).json({
       success: true,
-      message: Array.isArray(tasks) ? "Tasks created successfully" : "Task created successfully",
-      data: createdTasks
+      message: : "Task created successfully",
+      data: task
     })
   } catch (error) {
     console.error(error)
